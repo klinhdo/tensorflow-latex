@@ -17,6 +17,7 @@
 #import <Photos/Photos.h>
 
 #include <vector>
+#include <map>
 
 #include "tensorflow/contrib/lite/kernels/register.h"
 #include "tensorflow/contrib/lite/model.h"
@@ -38,6 +39,8 @@ typedef struct {
 
 
   std::vector<std::string> labels;
+  std::vector<std::string> latexs;
+  std::map<std::string, std::string> dictionary;
   std::unique_ptr<tflite::FlatBufferModel> model;
   tflite::ops::builtin::BuiltinOpResolver resolver;
   std::unique_ptr<tflite::Interpreter> interpreter;
